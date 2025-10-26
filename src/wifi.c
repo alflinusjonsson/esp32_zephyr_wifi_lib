@@ -137,13 +137,3 @@ void on_ipv4_mgmt_event(struct net_mgmt_event_callback *cb,
         LOG_ERR("Failed to publish network status, error: %s", strerror(ret));
     }
 }
-
-K_THREAD_DEFINE(network_task_id,
-                CONFIG_MQTT_NETWORK_THREAD_STACK_SIZE,
-                network_task,
-                NULL,
-                NULL,
-                NULL,
-                3,
-                0,
-                0);
