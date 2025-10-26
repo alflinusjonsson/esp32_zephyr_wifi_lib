@@ -1,0 +1,30 @@
+menu "ESP32 Wi-Fi helper library"
+
+config WIFI_LIB
+    bool "Enable Wi-Fi helper library"
+    depends on WIFI && WIFI_ESP32 && NET_L2_WIFI_MGMT && NET_MGMT && NET_IPV4
+    default y
+    help
+      Provides Wi-Fi connection management and publishes network status events
+      over zbus. The application must enable the Wi-Fi and networking stack.
+
+config WIFI_SSID
+		string "SSID of the target AP"
+		help
+			SSID of the access point to connect to in station mode.
+			For example: "MyHomeWiFi".
+
+config WIFI_PSK
+		string "Pre-shared key for target AP"
+		help
+			WPA2/WPA password used to connect to the target AP.
+			For example: "SuperSecret".
+
+config WIFI_LIB_RECONNECT_DELAY_MS
+    int "Reconnect delay (ms)"
+    default 5000
+    depends on WIFI_LIB
+    help
+      Delay before attempting reconnection after a disconnect.
+
+endmenu

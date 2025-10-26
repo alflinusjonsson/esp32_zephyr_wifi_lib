@@ -1,0 +1,4 @@
+name: esp32_zephyr_wifi_lib
+build:
+  cmake: .
+  kconfig: Kconfig
